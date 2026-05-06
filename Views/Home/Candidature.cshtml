@@ -1,0 +1,177 @@
+@{
+    ViewData["Title"] = "Candidature spontanée - ECS Informatique";
+}
+
+<div class="page-title dark-background aos-init aos-animate" data-aos="fade" style="background-image: url('/Carrière/photoequipe.jpg');">
+    <div class="container position-relative">
+        <h1>Carrière</h1>
+        <p>Rejoignez-nous ! Envoyez-nous votre candidature ou vos questions sur nos offres. Notre service RH vous recontactera.</p>
+        <nav class="breadcrumbs">
+            <ol>
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="current">Carrière / Candidature spontanée</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<section id="contact" class="contact section">
+    <!-- Section Title -->
+    <div class="container section-header aos-init aos-animate" data-aos="fade-up">
+        <h2 class="section-title">Candidature spontanée</h2>
+        <p class="section-tagline">Nous sommes à votre écoute ! N'hésitez pas à nous contacter pour toute question ou demande d'information. Nous serons ravis de vous aider et de répondre à vos besoins.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <form id="DemandeForm" method="post" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="300" enctype="multipart/form-data" asp-controller="Home" asp-action="SubmitCandidacy">
+            @Html.AntiForgeryToken()
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <input type="text" name="Name" class="form-control" placeholder="Nom et Prénom" required="">
+                </div>
+
+                <div class="col-md-4 ">
+                    <input type="email" class="form-control" name="Email" placeholder="Email" required="">
+                </div>
+
+                <div class="col-md-4 ">
+                    <input type="tel" class="form-control" name="Phone" placeholder="Téléphone" required="">
+                </div>
+
+                <div class="col-md-4 btn-group" role="group">
+                    <input type="radio" class="btn-check" name="JobType" id="stage" value="stage" required="">
+                    <label class="btn btn-outline-success" for="stage" style="--bs-btn-active-bg: #18D26E; --bs-btn-active-border-color: #18D26E;">Stage</label>
+                
+                    <input type="radio" class="btn-check" name="JobType" id="emploi" value="emploi">
+                    <label class="btn btn-outline-success" for="emploi" style="--bs-btn-active-bg: #18D26E; --bs-btn-active-border-color: #18D26E;">Emploi</label>
+                </div>
+
+                <div class="col-md-12">
+                    <input type="text" class="form-control" name="Poste" placeholder="Le poste que vous recherchez" required="">
+                </div>
+
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="form-group w-100">
+                        <label for="CV" class="form-label">Téléverser un CV</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control" id="CV" name="CV" accept=".pdf" required="" onchange="checkFileSize(this)">
+                        </div>
+                        <div class="form-text">Seuls les fichiers PDF sont acceptés. Taille maximale : 10 Mo.</div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <textarea class="form-control" name="Message" rows="6" placeholder="Lettre de motivation" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <div class="error-message4 alert alert-danger" style="display:none;">Erreur lors de l'envoi.</div>
+                    <div class="sent-message4 alert alert-success" style="display:none;">Ta demande est bien reçue. Merci!</div>
+                    <button id="btn-dmnd" type="submit">Envoyer</button>
+                </div>
+            </div>
+        </form><!-- End Contact Form -->
+    </div>
+</section>
+
+<style>
+    .page-title {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 80px 0;
+        position: relative;
+    }
+
+    .page-title::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    .page-title .container {
+        z-index: 2;
+    }
+
+    .page-title h1 {
+        color: #fff;
+        font-size: 48px;
+        font-weight: 700;
+    }
+
+    .page-title p {
+        color: rgba(255, 255, 256, 0.8);
+        font-size: 18px;
+    }
+
+    .breadcrumbs ol {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: rgba(255, 255, 256, 0.6);
+    }
+
+    .breadcrumbs ol li a {
+        color: var(--primary-green);
+        text-decoration: none;
+    }
+
+    .breadcrumbs ol li + li {
+        padding-left: 10px;
+    }
+
+    .breadcrumbs ol li + li::before {
+        display: inline-block;
+        padding-right: 10px;
+        color: #fff;
+        content: "/";
+    }
+
+    .php-email-form {
+        background: var(--card-bg);
+        color: var(--text-dark);
+        padding: 30px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--border-color);
+    }
+
+    [data-theme="dark"] .form-text {
+        color: #aaaaaa !important;
+    }
+
+    [data-theme="dark"] .form-label {
+        color: #ffffff !important;
+    }
+
+    .btn-group .btn {
+        padding: 10px 20px;
+    }
+
+    #btn-dmnd {
+        background: var(--primary-green);
+        border: 0;
+        padding: 10px 40px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 50px;
+    }
+
+    #btn-dmnd:hover {
+        background: #218838;
+    }
+</style>
+
+<script>
+    function checkFileSize(input) {
+        if (input.files && input.files[0]) {
+            var fileSize = input.files[0].size / 1024 / 1024; // in MB
+            if (fileSize > 10) {
+                alert("Le fichier est trop volumineux (max 10 Mo).");
+                input.value = "";
+            }
+        }
+    }
+</script>

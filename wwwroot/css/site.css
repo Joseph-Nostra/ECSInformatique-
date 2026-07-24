@@ -588,7 +588,7 @@ body {
 
 /* CTA Section Styles */
 .cta-section {
-  background: linear-gradient(rgba(0, 71, 79, 0.85), rgba(0, 71, 79, 0.85)), url('/background/cta-bg.jpg') no-repeat center center;
+  background: linear-gradient(rgba(0, 71, 79, 0.85), rgba(0, 71, 79, 0.85)), url('../background/cta-bg.jpg') no-repeat center center;
   background-size: cover;
   padding: 100px 0;
 }

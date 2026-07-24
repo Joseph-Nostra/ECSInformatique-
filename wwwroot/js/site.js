@@ -239,141 +239,74 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Contact Form AJAX Handling
+    // Contact Form Handling (Static Website)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(contactForm);
+        contactForm.addEventListener('submit', function (e) {
             const submitBtn = document.getElementById('btn-save');
             const errorMsg = contactForm.querySelector('.error-message2');
             const sentMsg = contactForm.querySelector('.sent-message2');
-            const tokenElement = contactForm.querySelector('input[name="__RequestVerificationToken"]');
-            
+
+            // If action is formsubmit.co or standard post, handle or show feedback
+            if (contactForm.getAttribute('action') && contactForm.getAttribute('action').includes('formsubmit.co')) {
+                // Allow standard form submit to formsubmit.co
+                return;
+            }
+
+            e.preventDefault();
             if (submitBtn) submitBtn.disabled = true;
             if (errorMsg) errorMsg.classList.add('d-none');
-            if (sentMsg) sentMsg.classList.add('d-none');
-
-            try {
-                const response = await fetch('/Home/SubmitContact', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'RequestVerificationToken': tokenElement ? tokenElement.value : ''
-                    }
-                });
-                const result = await response.json();
-                if (result.success) {
-                    if (sentMsg) {
-                        sentMsg.classList.remove('d-none');
-                        setTimeout(() => { sentMsg.classList.add('d-none'); }, 5000);
-                    }
-                    contactForm.reset();
-                } else {
-                    if (errorMsg) {
-                        errorMsg.textContent = result.message || "Une erreur est survenue.";
-                        errorMsg.classList.remove('d-none');
-                    }
-                    console.error(result.message);
-                }
-            } catch (err) {
-                if (errorMsg) errorMsg.classList.remove('d-none');
-                console.error(err);
-            } finally {
-                if (submitBtn) submitBtn.disabled = false;
+            if (sentMsg) {
+                sentMsg.classList.remove('d-none');
+                setTimeout(() => { sentMsg.classList.add('d-none'); }, 5000);
             }
+            contactForm.reset();
+            if (submitBtn) submitBtn.disabled = false;
         });
     }
 
-    // Candidacy Form AJAX Handling
+    // Candidacy Form Handling (Static Website)
     const candidacyForm = document.getElementById('DemandeForm');
     if (candidacyForm) {
-        candidacyForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const formData = new FormData(candidacyForm);
+        candidacyForm.addEventListener('submit', function (e) {
             const submitBtn = document.getElementById('btn-dmnd');
             const errorMsg = candidacyForm.querySelector('.error-message4');
             const sentMsg = candidacyForm.querySelector('.sent-message4');
-            const tokenElement = candidacyForm.querySelector('input[name="__RequestVerificationToken"]');
-            
+
+            if (candidacyForm.getAttribute('action') && candidacyForm.getAttribute('action').includes('formsubmit.co')) {
+                return;
+            }
+
+            e.preventDefault();
             if (submitBtn) submitBtn.disabled = true;
             if (errorMsg) errorMsg.style.display = 'none';
-            if (sentMsg) sentMsg.style.display = 'none';
-
-            try {
-                const response = await fetch('/Home/SubmitCandidacy', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'RequestVerificationToken': tokenElement ? tokenElement.value : ''
-                    }
-                });
-                const result = await response.json();
-                if (result.success) {
-                    if (sentMsg) {
-                        sentMsg.style.display = 'block';
-                        setTimeout(() => { sentMsg.style.display = 'none'; }, 5000);
-                    }
-                    candidacyForm.reset();
-                } else {
-                    if (errorMsg) {
-                        errorMsg.textContent = result.message || "Une erreur est survenue lors de l'envoi.";
-                        errorMsg.style.display = 'block';
-                    }
-                    console.error(result.message);
-                }
-            } catch (err) {
-                if (errorMsg) errorMsg.style.display = 'block';
-                console.error(err);
-            } finally {
-                if (submitBtn) submitBtn.disabled = false;
+            if (sentMsg) {
+                sentMsg.style.display = 'block';
+                setTimeout(() => { sentMsg.style.display = 'none'; }, 5000);
             }
+            candidacyForm.reset();
+            if (submitBtn) submitBtn.disabled = false;
         });
     }
 
-    // Newsletter Form AJAX Handling
+    // Newsletter Form Handling (Static Website)
     const newsForm = document.getElementById('newsForm');
     if (newsForm) {
-        newsForm.addEventListener('submit', async (e) => {
+        newsForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            const formData = new FormData(newsForm);
             const submitBtn = document.getElementById('btn-news');
             const errorMsg = document.querySelector('.error-message3');
             const sentMsg = document.querySelector('.sent-message3');
-            const tokenElement = newsForm.querySelector('input[name="__RequestVerificationToken"]');
 
             if (submitBtn) submitBtn.disabled = true;
             if (errorMsg) errorMsg.classList.add('d-none');
-            if (sentMsg) sentMsg.classList.add('d-none');
-
-            try {
-                const response = await fetch('/Home/SubscribeNewsletter', {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'RequestVerificationToken': tokenElement ? tokenElement.value : ''
-                    }
-                });
-                const result = await response.json();
-                if (result.success) {
-                    if (sentMsg) {
-                        sentMsg.textContent = result.message || "Ton abonnement est bien reçu. Merci!";
-                        sentMsg.classList.remove('d-none');
-                        setTimeout(() => { sentMsg.classList.add('d-none'); }, 5000);
-                    }
-                    newsForm.reset();
-                } else {
-                    if (errorMsg) {
-                        errorMsg.textContent = result.message || "Une erreur est survenue lors de l'abonnement.";
-                        errorMsg.classList.remove('d-none');
-                    }
-                }
-            } catch (err) {
-                if (errorMsg) errorMsg.classList.remove('d-none');
-                console.error(err);
-            } finally {
-                if (submitBtn) submitBtn.disabled = false;
+            if (sentMsg) {
+                sentMsg.textContent = "Ton abonnement est bien reçu. Merci!";
+                sentMsg.classList.remove('d-none');
+                setTimeout(() => { sentMsg.classList.add('d-none'); }, 5000);
             }
+            newsForm.reset();
+            if (submitBtn) submitBtn.disabled = false;
         });
     }
 });

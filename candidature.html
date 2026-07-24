@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candidature Spontanée - ECS Informatique</title>
+    <link rel="icon" type="image/png" href="wwwroot/Carrière/logo2.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <link rel="stylesheet" href="wwwroot/css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <style>
+        .page-title {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .page-title::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .page-title .container {
+            z-index: 2;
+        }
+
+        .page-title h1 {
+            color: #fff;
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .page-title p {
+            color: rgba(255, 255, 256, 0.8);
+            font-size: 18px;
+        }
+
+        .breadcrumbs ol {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: rgba(255, 255, 256, 0.6);
+        }
+
+        .breadcrumbs ol li a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .breadcrumbs ol li + li {
+            padding-left: 10px;
+        }
+
+        .breadcrumbs ol li + li::before {
+            display: inline-block;
+            padding-right: 10px;
+            color: #fff;
+            content: "/";
+        }
+
+        .php-email-form {
+            background: var(--card-bg);
+            color: var(--text-dark);
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .form-text {
+            color: #aaaaaa !important;
+        }
+
+        [data-theme="dark"] .form-label {
+            color: #ffffff !important;
+        }
+
+        .btn-group .btn {
+            padding: 10px 20px;
+        }
+
+        #btn-dmnd {
+            background: var(--primary-green);
+            border: 0;
+            padding: 10px 40px;
+            color: #fff;
+            transition: 0.4s;
+            border-radius: 50px;
+        }
+
+        #btn-dmnd:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div id="preloader"></div>
+
+    <header class="header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="wwwroot/Carrière/logo2.png" alt="Logo" style="height: 50px;" class="me-2" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link custom-link" href="index.html">ACCUEIL</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-link" href="index.html#about">À PROPOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-link" href="index.html#services">SERVICES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-link" href="index.html#references">RÉFÉRENCES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-link" href="index.html#partners">PARTENAIRES</a>
+                        </li>
+                        <li class="nav-item dropdown custom-dropdown">
+                            <a class="nav-link custom-link dropdown-toggle active" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                CARRIÈRE
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark border-0 shadow-sm">
+                                <li><a class="dropdown-item custom-link" href="offers.html">Nos Offres</a></li>
+                                <li><a class="dropdown-item custom-link active" href="candidature.html">Candidature spontanée</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-link" href="index.html#contact">CONTACT</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <button id="theme-toggle" class="theme-toggle border-0 bg-transparent" aria-label="Toggle theme">
+                                <i class="bi bi-moon-stars"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content-wrapper">
+        <main role="main">
+            <div class="page-title dark-background aos-init aos-animate" data-aos="fade" style="background-image: url('wwwroot/Carrière/photoequipe.jpg');">
+                <div class="container position-relative">
+                    <h1>Carrière</h1>
+                    <p>Rejoignez-nous ! Envoyez-nous votre candidature ou vos questions sur nos offres. Notre service RH vous recontactera.</p>
+                    <nav class="breadcrumbs">
+                        <ol>
+                            <li><a href="index.html">Accueil</a></li>
+                            <li class="current">Carrière / Candidature spontanée</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <section id="contact" class="contact section">
+                <!-- Section Title -->
+                <div class="container section-header aos-init aos-animate" data-aos="fade-up">
+                    <h2 class="section-title">Candidature spontanée</h2>
+                    <p class="section-tagline">Nous sommes à votre écoute ! N'hésitez pas à nous contacter pour toute question ou demande d'information. Nous serons ravis de vous aider et de répondre à vos besoins.</p>
+                </div><!-- End Section Title -->
+
+                <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <form id="DemandeForm" action="https://formsubmit.co/tonemail@gmail.com" method="POST" enctype="multipart/form-data">
+                        <div class="row gy-4">
+                            <div class="col-md-4">
+                                <input type="text" name="Name" class="form-control" placeholder="Nom et Prénom" required="">
+                            </div>
+
+                            <div class="col-md-4">
+                                <input type="email" class="form-control" name="Email" placeholder="Email" required="">
+                            </div>
+
+                            <div class="col-md-4">
+                                <input type="tel" class="form-control" name="Phone" placeholder="Téléphone" required="">
+                            </div>
+
+                            <div class="col-md-4 btn-group" role="group">
+                                <input type="radio" class="btn-check" name="JobType" id="stage" value="stage" required="">
+                                <label class="btn btn-outline-success" for="stage" style="--bs-btn-active-bg: #18D26E; --bs-btn-active-border-color: #18D26E;">Stage</label>
+
+                                <input type="radio" class="btn-check" name="JobType" id="emploi" value="emploi">
+                                <label class="btn btn-outline-success" for="emploi" style="--bs-btn-active-bg: #18D26E; --bs-btn-active-border-color: #18D26E;">Emploi</label>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" name="Poste" placeholder="Le poste que vous recherchez" required="">
+                            </div>
+
+                            <div class="col-md-6 d-flex align-items-center">
+                                <div class="form-group w-100">
+                                    <label for="CV" class="form-label">Téléverser un CV</label>
+                                    <div class="input-group">
+                                        <input type="file" class="form-control" id="CV" name="CV" accept=".pdf" required="" onchange="checkFileSize(this)">
+                                    </div>
+                                    <div class="form-text">Seuls les fichiers PDF sont acceptés. Taille maximale : 10 Mo.</div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <textarea class="form-control" name="Message" rows="6" placeholder="Lettre de motivation" required=""></textarea>
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <div class="error-message4 alert alert-danger" style="display:none;">Erreur lors de l'envoi.</div>
+                                <div class="sent-message4 alert alert-success" style="display:none;">Ta demande est bien reçue. Merci!</div>
+                                <button id="btn-dmnd" aria-label="Envoyer la candidature" type="submit">Envoyer</button>
+                            </div>
+                        </div>
+                    </form><!-- End Contact Form -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer id="footer" class="footer dark-background">
+        <div class="container footer-top py-5">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center mb-3">
+                        <span class="sitename">ECS Informatique</span>
+                    </a>
+                    <div class="footer-contact pt-2">
+                        <p class="mb-1"><strong>Siège Rabat</strong></p>
+                        <p class="mb-3">54 Avenue Mehdi Ben Barka - Rabat, Maroc</p>
+                        <p class="mb-1"><strong>Téléphone:</strong> <span>+212(0) 530-300600</span></p>
+                        <p class="mb-0"><strong>Email:</strong> <span>ecs@ecs.net.ma</span></p>
+                    </div>
+                    <div class="social-links d-flex mt-4 gap-3">
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4 class="mb-3">Liens utiles</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="footer-link">Accueil</a></li>
+                        <li class="mb-2"><a href="index.html#about" class="footer-link">À propos</a></li>
+                        <li class="mb-2"><a href="index.html#services" class="footer-link">Services</a></li>
+                        <li class="mb-2"><a href="index.html#references" class="footer-link">RÉFÉRENCES</a></li>
+                        <li class="mb-2"><a href="index.html#contact" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-3 footer-links">
+                    <h4 class="mb-3">Nos Services</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html#services" class="footer-link">Développement d'applications</a></li>
+                        <li class="mb-2"><a href="index.html#services" class="footer-link">Sécurité des systèmes</a></li>
+                        <li class="mb-2"><a href="index.html#services" class="footer-link">Infrastructure</a></li>
+                        <li class="mb-2"><a href="index.html#services" class="footer-link">Business Intelligence</a></li>
+                        <li class="mb-2"><a href="index.html#services" class="footer-link">Cloud</a></li>
+                        <li class="mb-2"><a href="index.html#services" class="footer-link">ERP Education</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 col-md-12 footer-newsletter">
+                    <h4 class="mb-3">Notre Newsletter</h4>
+                    <p class="mb-4">Abonnez-vous à notre newsletter et recevez les dernières actualités sur nos produits et services !</p>
+                    <form id="newsForm" method="post" class="newsletter-form-custom d-flex">
+                        <input type="email" name="email" class="form-control rounded-0 rounded-start border-0 py-3" placeholder="Votre email" required>
+                        <input id="btn-news" type="submit" value="Abonnez-vous" class="btn btn-success rounded-0 rounded-end px-4">
+                    </form>
+                    <div id="newsletter-response" class="mt-2">
+                        <div class="error-message3 d-none alert alert-danger py-2 mt-2">Erreur lors de l'abonnement.</div>
+                        <div class="sent-message3 d-none alert alert-success py-2 mt-2">Ton abonnement est bien reçu. Merci!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container copyright text-center border-top py-4">
+            <p class="mb-0">© <span>1988-2025</span> <strong class="px-1 sitename">ECS Informatique</strong></p>
+        </div>
+    </footer>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Retour en haut"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="wwwroot/js/site.js"></script>
+    <script>
+        function checkFileSize(input) {
+            if (input.files && input.files[0]) {
+                var fileSize = input.files[0].size / 1024 / 1024; // in MB
+                if (fileSize > 10) {
+                    alert("Le fichier est trop volumineux (max 10 Mo).");
+                    input.value = "";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
